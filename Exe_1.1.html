@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Web innovtion Portfolios</title>
+    </head>
+    <body>
+        <h1>Exercise 1.1</h1>
+        <p>Playing with numbers</p>
+        <p id="displayTitle"></p>
+        <p id="displaySum"></p>
+        <button onclick="enterNum()">Start</button>>    
+        <script>
+            function enterNum(){
+                let sum = 0;
+                let i = 0;
+                let large = 0;
+                let num = prompt("Enter a positive number");
+                while (num < 0){
+                    alert("Please enter a positive number");
+                    num = prompt("Enter a positive number");
+                }
+                document.getElementById("displayTitle").innerHTML = "Let's Start the Game!";
+                while( i < num){
+                    let userEnter = prompt("Enter a number");
+                    sum = sum + parseInt(userEnter);
+                    i++;
+                }
+                document.getElementById("displaySum").innerHTML = "The sum of the numbers is " + sum;
+            }
+            
+        </script>
+    </body>    
+</html>
