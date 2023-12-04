@@ -4,13 +4,11 @@
         <title>Web innovtion Portfolios</title>
     </head>
     <body>
-        <h1>Exercise 1.3</h1>
+        <h1>Exercise 1.2</h1>
         <p>Playing with numbers</p>
         <p id="displayTitle"></p>
-        <p id="displaySum"></p>
         <p id="displayLargeNumber"></p>
-        <button onclick="enterNum()">Start</button>
-        
+        <button onclick="enterNum()">Start</button>>
         <script>
             function enterNum(){
                 let sum = 0;
@@ -24,7 +22,6 @@
                 document.getElementById("displayTitle").innerHTML = "Let's Start the Game!";
                 while( i < num){
                     let userEnter = prompt("Enter a number");
-                    sum = sum + parseInt(userEnter);
                     if (userEnter > large){
                         large = userEnter;
                     }
