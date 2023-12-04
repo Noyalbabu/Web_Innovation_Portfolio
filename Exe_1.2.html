@@ -8,10 +8,9 @@
         <p>Playing with numbers</p>
         <p id="displayTitle"></p>
         <p id="displayLargeNumber"></p>
-        <button onclick="enterNum()">Start</button>>
+        <button onclick="enterNum()">Start</button>
         <script>
             function enterNum(){
-                let sum = 0;
                 let i = 0;
                 let large = 0;
                 let num = prompt("Enter a positive number");
@@ -27,7 +26,6 @@
                     }
                     i++;
                 }
-                document.getElementById("displaySum").innerHTML = "The sum of the numbers is " + sum;
                 document.getElementById("displayLargeNumber").innerHTML = "The largest number is " + large;
             }
             
