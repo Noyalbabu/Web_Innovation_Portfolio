@@ -4,32 +4,28 @@
         <title>Web innovtion Portfolios</title>
     </head>
     <body>
-        <h1>Exercise 2</h1>
+        <h1>Exercise 1.2</h1>
         <p>Playing with numbers</p>
         <p id="displayTitle"></p>
-        <p id="displaySum"></p>
         <p id="displayLargeNumber"></p>
         <button onclick="enterNum()">Start</button>
-        
         <script>
             function enterNum(){
-                let sum = 0;
+                let i = 0;
                 let large = 0;
                 let num = prompt("Enter a positive number");
-                if (num < 0){
+                while (num < 0){
                     alert("Please enter a positive number");
                     num = prompt("Enter a positive number");
                 }
                 document.getElementById("displayTitle").innerHTML = "Let's Start the Game!";
-                for(let i = 0; i < num; i++){
+                while( i < num){
                     let userEnter = prompt("Enter a number");
-                    sum = sum + parseInt(userEnter);
                     if (userEnter > large){
                         large = userEnter;
                     }
                     i++;
                 }
-                document.getElementById("displaySum").innerHTML = "The sum of the numbers is " + sum;
                 document.getElementById("displayLargeNumber").innerHTML = "The largest number is " + large;
             }
             
