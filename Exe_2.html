@@ -2,13 +2,61 @@
 <html>
     <head>
         <title>Web innovtion Portfolios</title>
+        <style>
+            .textFields {
+                text-align: center;
+            }
+
+            .text {
+                text-align: center;
+                color: chocolate;
+                width: 300px; /* Set the desired width */
+                margin: 0 auto; /* Center the text box */
+            }
+        </style>
     </head>
     <body>
         <h1>Javascript Exercise 2</h1>
-        <form>
+        <form name = "GiveText" action="" method = "GET">
             <div class="textFields">
             <label for="text1">text1:</label><br>
             <input type="text" class="text" name="text1"><br>
+
+            <div class="textFields">
+            <label for="text2">text2:</label><br>
+            <input type="text" class="text" name="text2"><br>
+
+            <div class="textFields">
+            <label for="text3">text3:</label><br>
+            <input type="text" class="text" name="text3"><br>
+
+            <div class="textFields">
+            <label for="text4">text4:</label><br>
+            <input type="text" class="text" name="text4"><br>
+
+            <div class="textFields">
+            <label for="text5">text5:</label><br>
+            <input type="text" class="text" name="text5"><br>
+
+            <div class="textFields">
+            <label for="text6">text6:</label><br>
+            <input type="text" class="text" name="text6"><br>
+            
+            <input type="button" name="button" value="Click" onClick="testResults(this.form)"><br>
+
+            <div class="textFields">
+            <label for="result">Result:</label><br>
+            <input type="text" class="text" name="result" readonly><br>
+    
         </form>
+        <script>
+           function testResults(form){
+            var inputValue = "";
+            for (var i = 1; i < 7; i++){
+                inputValue += form.elements["text" + i].value + " ";
+            }
+            form.result.value = inputValue;
+        }
+        </script>
     </body>
 </html>
