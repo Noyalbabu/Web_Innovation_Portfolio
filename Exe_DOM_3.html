@@ -4,7 +4,7 @@
         <title>Web Innovation Portfolio</title>
     </head>
     <body>
-        <table>DOM Exercise</table>
+        <table id = "Exe_3_DOM"> DOM Exercise </table>
         
         <script>
             function loadXML(){
@@ -17,6 +17,22 @@
                 xhttp.open("GET", "DOM_Exe3.xml", true);
                 xhttp.send();
             }
+            function domExe(xml){
+             
+                var xmlDoc = xml.responseXML;
+                var table = "<tr><th>NAME</th><th>AGE</th><th>HEIGHT</th><th>SEX</th><th>GRADE</th></tr>"
+                var studentTag= xmlDoc.getElementsByTagName("STUDENT");
+                for(var i = 0; i < x.length; i++){
+                    table = table + "<tr><td>" + 
+                    studentTag[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue + "</td><td>" + 
+                    studentTag[i].getElementsByTagName("AGE")[0].childNodes[0].nodeValue + "</td><td>" +
+                    studentTag[i].getElementsByTagName("HEIGHT")[0].childNodes[0].nodeValue + "</td><td>" +
+                    studentTag[i].getElementsByTagName("SEX")[0].childNodes[0].nodeValue + "</td><td>" +
+                    studentTag[i].getElementsByTagName("GRADE")[0].childNodes[0].nodeValue + "</td></tr>";
+                }
+                document.getElementById("Exe_3_DOM").innerHTML = table;
+            }
+            loadXML();
         </script>
     </body>
 </html>
