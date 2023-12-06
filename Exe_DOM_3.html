@@ -5,25 +5,23 @@
     </head>
     <body>
         <table id = "Exe_3_DOM"> DOM Exercise </table>
-        
         <script>
             function loadXML(){
-                let xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function(){
+                let xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function(){
                     if(this.readyState == 4 && this.status == 200){
-                        myFunction(this);
+                        domExe(this);
                     }
                 };
-                xhttp.open("GET", "DOM_Exe3.xml", true);
-                xhttp.send();
+                xmlhttp.open("GET", "DOM_Exe3.xml", true);
+                xmlhttp.send();
             }
             function domExe(xml){
-             
                 var xmlDoc = xml.responseXML;
                 var table = "<tr><th>NAME</th><th>AGE</th><th>HEIGHT</th><th>SEX</th><th>GRADE</th></tr>"
                 var studentTag= xmlDoc.getElementsByTagName("STUDENT");
-                for(var i = 0; i < x.length; i++){
-                    table = table + "<tr><td>" + 
+                for(var i = 0; i < studentTag.length; i++){
+                    table += "<tr><td>" + 
                     studentTag[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue + "</td><td>" + 
                     studentTag[i].getElementsByTagName("AGE")[0].childNodes[0].nodeValue + "</td><td>" +
                     studentTag[i].getElementsByTagName("HEIGHT")[0].childNodes[0].nodeValue + "</td><td>" +
@@ -32,7 +30,7 @@
                 }
                 document.getElementById("Exe_3_DOM").innerHTML = table;
             }
-            loadXML();
+            loadXML()
         </script>
     </body>
 </html>
