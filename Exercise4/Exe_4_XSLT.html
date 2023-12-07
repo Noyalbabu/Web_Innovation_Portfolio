@@ -1,56 +1,17 @@
-<html>
-    <head>
-        <title>Web Innovation Coursework</title>
-        <style>
-        table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-        }
-
-        td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-        }
-
-        tr:nth-child(even) {
-        background-color: #dddddd;
-        }
-        </style>
-    </head>
-    <body>
-        <h1>Exercise 4 XSLT</h1>
-        <p style="text-align:center;"><b>STUDENT DETAILS</b></p>
-        <table id="Advanced Web Development"></table>
-
-        <script>
-        function loadXMLDoc() {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-            processXML(this);
-            }
-        };
-        xmlhttp.open("GET", "DOM_Exe3.xml", true);
-        xmlhttp.send();
-        }
-        function processXML(xml) {
-        var xmlDoc = xml.responseXML;
-        var table="<tr><th>NAME</th><th>AGE</th></tr>";
-        var details = xmlDoc.getElementsByTagName("STUDENT");
-        for (i = 0; i <details.length; i++) {
-            if (details[i].getElementsByTagName("GRADE")[0].childNodes[0].nodeValue == "A"){
-                table += "<tr><td>" +
-                details[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue +
-                "</td><td>" +
-                details[i].getElementsByTagName("AGE")[0].childNodes[0].nodeValue ;
-            }
-        }
-        document.getElementById("Advanced Web Development").innerHTML = table;
-        }
-        loadXMLDoc()
-        </script>
-
-    </body>
+<?xml version="1.0" encoding="UTF-8"?>
+<html xsl:version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<body style="font-family:Courier New;font-size:12pt;background-color:#EEEEEE">
+<xsl:for-each select="STUDENT">
+    <div style="background-color:teal;color:white;padding:4px">
+        <span style="font-weight:bold"><xsl:value-of select="NAME"/>-</span>
+        <xsl:value-of select="AGE"/>
+    </div>
+    <div style="margin-left:20px;margin-bottom:1em;font-size:10pt">
+        <p>
+            <xsl:value-of select="GRADE"/>
+        </p>
+    </div>
+</xsl:for-each>
+</body>
 </html>
+
