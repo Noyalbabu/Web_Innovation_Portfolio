@@ -2,17 +2,25 @@
     <head>
         <title>Web Innovation Coursework</title>
         <style>
-        table, th, td {
-        border: 1px solid black;
-        border-collapse:collapse;
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
         }
-        th, td {
-        padding: 5px;
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
         }
         </style>
     </head>
     <body>
-        
+        <p style="text-align:center;"><b>STUDENT DETAILS</b></p>
         <table id="Advanced Web Development"></table>
 
         <script>
@@ -20,25 +28,21 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-            myFunction(this);
+            processXML(this);
             }
         };
         xmlhttp.open("GET", "DOM_Exe3.xml", true);
         xmlhttp.send();
         }
-        function myFunction(xml) {
-        var i;
+        function processXML(xml) {
         var xmlDoc = xml.responseXML;
-        var table="<tr><th>NAME</th><th>AGE</th><th>GRADE</th></tr>";
-        var x = xmlDoc.getElementsByTagName("STUDENT");
-        for (i = 0; i <x.length; i++) {
+        var table="<tr><th>NAME</th><th>AGE</th></tr>";
+        var details = xmlDoc.getElementsByTagName("STUDENT");
+        for (i = 0; i <details.length; i++) {
             table += "<tr><td>" +
-            x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue +
+            details[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue +
             "</td><td>" +
-            x[i].getElementsByTagName("AGE")[0].childNodes[0].nodeValue +
-            "</td><td>" +
-            x[i].getElementsByTagName("GRADE")[0].childNodes[0].nodeValue +
-            "</td></tr>";
+            details[i].getElementsByTagName("AGE")[0].childNodes[0].nodeValue ;
         }
         document.getElementById("Advanced Web Development").innerHTML = table;
         }

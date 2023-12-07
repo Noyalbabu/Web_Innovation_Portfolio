@@ -1,4 +1,4 @@
-<CLASS ID=”Advanced Web Development”>
+<CLASS ID="Advanced Web Development">
     <STUDENT>
         <NAME>Tom</NAME>
         <AGE>19</AGE>
@@ -25,6 +25,6 @@
         <AGE>30</AGE>
         <HEIGHT>1.1</HEIGHT>
         <SEX>F</SEX>
-        <GRADE>B+</GRADE>
+        <GRADE>A</GRADE>
     </STUDENT>
 </CLASS>
