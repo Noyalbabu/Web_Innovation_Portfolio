@@ -1,36 +1,49 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <title>Web Innovation Portfolio</title>
+        <title>Web Innovation Coursework</title>
+        <style>
+        table, th, td {
+        border: 1px solid black;
+        border-collapse:collapse;
+        }
+        th, td {
+        padding: 5px;
+        }
+        </style>
     </head>
     <body>
-        <table id = "Exe_3_DOM"> DOM Exercise </table>
+        
+        <table id="Advanced Web Development"></table>
+
         <script>
-            function loadXML(){
-                let xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function(){
-                    if(this.readyState == 4 && this.status == 200){
-                        domExe(this);
-                    }
-                };
-                xmlhttp.open("GET", "DOM_Exe3.xml", true);
-                xmlhttp.send();
+        function loadXMLDoc() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            myFunction(this);
             }
-            function domExe(xml){
-                var xmlDoc = xml.responseXML;
-                var table = "<tr><th>NAME</th><th>AGE</th><th>HEIGHT</th><th>SEX</th><th>GRADE</th></tr>"
-                var studentTag= xmlDoc.getElementsByTagName("STUDENT");
-                for(var i = 0; i < studentTag.length; i++){
-                    table += "<tr><td>" + 
-                    studentTag[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue + "</td><td>" + 
-                    studentTag[i].getElementsByTagName("AGE")[0].childNodes[0].nodeValue + "</td><td>" +
-                    studentTag[i].getElementsByTagName("HEIGHT")[0].childNodes[0].nodeValue + "</td><td>" +
-                    studentTag[i].getElementsByTagName("SEX")[0].childNodes[0].nodeValue + "</td><td>" +
-                    studentTag[i].getElementsByTagName("GRADE")[0].childNodes[0].nodeValue + "</td></tr>";
-                }
-                document.getElementById("Exe_3_DOM").innerHTML = table;
-            }
-            loadXML()
+        };
+        xmlhttp.open("GET", "DOM_Exe3.xml", true);
+        xmlhttp.send();
+        }
+        function myFunction(xml) {
+        var i;
+        var xmlDoc = xml.responseXML;
+        var table="<tr><th>NAME</th><th>AGE</th><th>GRADE</th></tr>";
+        var x = xmlDoc.getElementsByTagName("STUDENT");
+        for (i = 0; i <x.length; i++) {
+            table += "<tr><td>" +
+            x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue +
+            "</td><td>" +
+            x[i].getElementsByTagName("AGE")[0].childNodes[0].nodeValue +
+            "</td><td>" +
+            x[i].getElementsByTagName("GRADE")[0].childNodes[0].nodeValue +
+            "</td></tr>";
+        }
+        document.getElementById("Advanced Web Development").innerHTML = table;
+        }
+        loadXMLDoc()
         </script>
+
     </body>
 </html>
